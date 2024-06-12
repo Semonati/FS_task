@@ -1,0 +1,25 @@
+.displayImage{
+    padding-top: 20px;
+    width: 100%;
+    max-height: 250px;
+}
+
+.changeImage{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+}
+
+.card{
+text-align: center;
+}
+
+.card img{
+    max-height: 450px;
+}
