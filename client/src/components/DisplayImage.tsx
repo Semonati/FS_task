@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Image } from "../types/types";
+
 import styles from "./styles.module.css";
+import { Image } from "@/types/types";
 
 type Props = {
   images?: Image[];
-  image?: string | ArrayBuffer;
+  image?: string;
 };
 
 const DisplayImage = ({ images = [], image }: Props) => {

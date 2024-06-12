@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const PORT = 8080;
-
-const apiUrl = `http://localhost:${PORT}`;
+const apiUrl = `http://localhost:${import.meta.env.VITE_PORT}`;
 
 
 export const postImage = async (image: FormData) => {

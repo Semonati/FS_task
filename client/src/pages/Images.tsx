@@ -1,28 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import handleApi from "@/services/HandleApi";
-import DisplayImage from "../components/DisplayImage";
 import styles from "./styles.module.css";
-
-import { Image } from "../types/types";
+import handleApi from "@/services/HandleApi";
+import { Image } from "@/types/types";
+import DisplayImage from "@/components/DisplayImage";
 
 const Images = () => {
   const [query, setQuery] = useState("");
   const [images, setImages] = useState<Image[]>([]);
   const [image, setImage] = useState<string | ArrayBuffer | null>("");
   const { handleGetMainsColors, value } = handleApi();
-  
 
   if (value.colors) {
     document.documentElement.style.setProperty(
       `--background-color`,
       value.colors[0]
     );
-    document.documentElement.style.setProperty(
-      `--text-color`,
-      value.colors[1]
-    );
+    document.documentElement.style.setProperty(`--text-color`, value.colors[1]);
   }
 
   useEffect(() => {
@@ -32,7 +27,9 @@ const Images = () => {
   useEffect(() => {
     const fetchImages = async () => {
       const result = await axios.get(
-        `https://pixabay.com/api/?key=44236742-b9e1843a07a03d8a483d82fd1&q=${query}&per_page=5`
+        `https://pixabay.com/api/?key=${
+          import.meta.env.VITE_API_KEY
+        }&q=${query}&per_page=5`
       );
       const data = result.data.hits;
       setImages(data);
@@ -56,7 +53,7 @@ const Images = () => {
     };
     reader.readAsDataURL(file);
 
-    setImage(event.target.files[0])
+    setImage(event.target.files[0]);
 
     const formData = new FormData();
     formData.append("image", file);

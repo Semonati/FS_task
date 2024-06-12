@@ -9,10 +9,10 @@ const Navbar = () => {
   return (
     <nav>
       <div className={styles.navbarConatiner}>
-        <Link to={ROUTES.ROOT} className={styles.link}>
+        <Link to={ROUTES.ABOUT_US} className={styles.link}>
           <button
             className={`${styles.aboutUs} ${
-              location === ROUTES.ROOT && styles.active
+              location === ROUTES.ABOUT_US && styles.active
             }`}
           >
             About Us

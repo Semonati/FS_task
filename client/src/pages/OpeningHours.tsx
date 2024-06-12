@@ -1,7 +1,16 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
-import { Input, OpeningHoursValues } from "@/types/types";
-import { dayOrder } from "@/constants/variables";
+import { DayOfWeek, Input, OpeningHoursValues } from "@/types/types";
+
+const dayOrder: { [key in DayOfWeek]: number } = {
+  sunday: 0,
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+  thursday: 4,
+  friday: 5,
+  saturday: 6,
+};
 
 const OpeningHours = () => {
   const [openingHours, setOpeningHours] = useState<OpeningHoursValues[]>([]);
